@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <title>Question and Answer</title>
+      <style>
+         body {
+            font-family: Calibri, sans-serif;
+            font-size: 3em;
+         }
+
+         /* The fraction answer setup */
+         #answer {
+            color: yellow;
+            width: 100px;
+            display: inline-block;
+            transform: translate(-355px, 60px); /* start off left and below */
+            animation: moveFraction 2s ease-in-out 1s forwards; /* 2s duration, 1s delay */
+            animation-fill-mode: forwards; /* stay in final position after animation */
+         }
+
+         /* Keyframes for moveFraction animation */
+         @keyframes moveFraction {
+            0% {
+               color: yellow;
+               transform: translate(-355px, 60px); /* off-screen left, below */
+            }
+            50% {
+               transform: translate(0px, 60px); /* just below/right of question */
+            }
+            100% {
+               color: red;
+               transform: translate(0px, 0px); /* next to '=' */
+            }
+         }
+
+         /* Add hover transformation to question */
+         #question {
+            display: inline-block;
+            transition: transform 0.6s ease-in-out;
+         }
+
+         #question:hover {
+            transform: scale(0.9); /* shrink slightly */
+         }
+
+         span {
+            display: inline-block;
+         }
+      </style>
+   </head>
+   <body>
+      <span id="question">Question: &frac14; + &frac12; =</span>
+      <span id="answer">&frac34;</span>
+   </body>
+</html>
